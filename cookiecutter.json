@@ -1,0 +1,8 @@
+{
+    "name": "my_package",
+    "description": "A short description of the package.",
+    "author_name": "Akop Kesheshyan",
+    "author_email": "devnull@akop.dev",
+    "github_username": "akopdev",
+    "version": "0.1.0"
+}

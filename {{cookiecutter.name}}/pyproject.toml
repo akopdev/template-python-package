@@ -1,0 +1,54 @@
+[project]
+name = "{{ cookiecutter.name }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.description }}"
+authors = [
+    { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}" }
+]
+maintainers = [
+    { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}" }
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiohttp",
+]
+
+[project.optional-dependencies]
+dev = [
+    "aioresponses",
+    "ruff",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+]
+
+[project.urls]
+Homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}"
+Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}"
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+exclude = [
+    ".venv",
+    "migrations",
+    "__init__.py"
+]
+include = ["*.py", "*.pyx"]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "D"]
+ignore = [
+  "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
