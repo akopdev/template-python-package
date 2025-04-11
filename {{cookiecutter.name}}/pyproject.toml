@@ -21,6 +21,7 @@ dev = [
     "ruff",
     "pytest",
     "pytest-asyncio",
+    "pytest-mock",
     "pytest-cov",
 ]
 
@@ -28,12 +29,18 @@ dev = [
 Homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}"
 Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}"
 
+[pytest]
+mock_use_standalone_module = true
+
 [tool.pytest.ini_options]
 asyncio_default_fixture_loop_scope = "function"
+testpaths = "tests/"
 
 [tool.ruff]
 exclude = [
     ".venv",
+    "build",
+    "dist",
     "migrations",
     "__init__.py"
 ]

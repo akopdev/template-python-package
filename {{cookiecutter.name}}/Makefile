@@ -16,7 +16,7 @@ help:
 all: format lint test ## Lint, test and build package
 
 test: ## Test package
-	$(PYTEST) tests -x -vv \
+	$(PYTEST) -x -vv \
 		--junitxml=.test_results/test-results.xml \
 		--cov=src \
 		--cov-report=xml:.test_results/coverage.xml \
@@ -25,7 +25,7 @@ test: ## Test package
 build: ## Build package
 	@$(UV) build 
 
-deploy: ## Publish package
+deploy: build ## Publish package
 	@read -p "Set a PyPI token: " token; \
 	$(UV) publish --token $$token
 
