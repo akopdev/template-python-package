@@ -25,6 +25,10 @@ test: ## Test package
 build: ## Build package
 	@$(UV) build 
 
+start: ## Run package
+	@$(UV) pip install -e .
+	@$(UVR) {{ cookiecutter.name }}
+
 deploy: build ## Publish package
 	@read -p "Set a PyPI token: " token; \
 	$(UV) publish --token $$token

@@ -13,6 +13,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "aiohttp",
+    "pydantic",
 ]
 
 [project.optional-dependencies]
@@ -28,6 +29,9 @@ dev = [
 [project.urls]
 Homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}"
 Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}"
+
+[project.scripts]
+{{ cookiecutter.name}} = "{{ cookiecutter.name}}.cli:main"
 
 [pytest]
 mock_use_standalone_module = true
