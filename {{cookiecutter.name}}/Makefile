@@ -30,8 +30,7 @@ start: ## Run package
 	@$(UVR) {{ cookiecutter.name }}
 
 deploy: build ## Publish package
-	@read -p "Set a PyPI token: " token; \
-	$(UV) publish --token $$token
+	$(UV) publish --token $(token)
 
 lint: ## Run linter over code base and auto resole minor issues
 	$(RUFF) check --fix

@@ -1,0 +1,25 @@
+name: cd
+
+on:
+  workflow_run:
+    workflows: ["ci"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'success' }}{% endraw %}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact from CI
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: dist/
+
+      - name: List contents
+        run: ls -la dist/
+
+      - name: Deploy (or publish)
+        run: make deploy token={% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
