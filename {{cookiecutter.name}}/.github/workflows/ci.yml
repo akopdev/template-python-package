@@ -1,9 +1,13 @@
-name: ci
+name: CI/CD
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  ci:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,3 +29,26 @@ jobs:
         with:
           name: build-dist
           path: dist/
+
+  deploy:
+    if: {% raw %}${{ github.ref == 'refs/heads/main' && success() }}{% endraw %}
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Download artifact from CI
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: dist/
+
+      - name: List contents
+        run: ls -la dist/
+
+      - name: Publish
+        run: make deploy token={% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
