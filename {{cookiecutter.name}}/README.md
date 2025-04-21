@@ -85,4 +85,4 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 
 ---
 
-> Made with ❤️ by [{{ cookiecutter.author_name }}](https://github.com/{{ cookiecutter.github_username }})
+Made with ❤️ by [{{ cookiecutter.author_name }}](https://github.com/{{ cookiecutter.github_username }})

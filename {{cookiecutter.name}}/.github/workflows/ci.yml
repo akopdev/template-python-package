@@ -34,6 +34,9 @@ jobs:
     if: {% raw %}${{ github.ref == 'refs/heads/main' && success() }}{% endraw %}
     needs: build
     runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -51,4 +54,4 @@ jobs:
         run: ls -la dist/
 
       - name: Publish
-        run: make deploy token={% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
+        uses: pypa/gh-action-pypi-publish@release/v1
