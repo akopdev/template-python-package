@@ -5,8 +5,6 @@
 [![License](https://img.shields.io/github/license/{{ cookiecutter.github_username }}/{{ cookiecutter.name }})](./LICENSE)
 [![Build](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}/actions/workflows/ci.yml/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}/actions)
 
----
-
 ## 🚀 Features
 
 - ✅ Clean, minimal API
@@ -14,8 +12,6 @@
 - 🧪 Fully tested and type-annotated
 - ⚡ Fast and lightweight
 - 📦 Available on PyPI
-
----
 
 ## 📦 Installation
 
@@ -31,8 +27,6 @@ To install the latest development version:
 uv pip install git+https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}.git
 ```
 
----
-
 ## 🛠️ Quickstart
 
 ```python
@@ -40,8 +34,6 @@ uv pip install git+https://github.com/{{ cookiecutter.github_username }}/{{ cook
 ```
 
 For more examples, check out the [`examples/`](./examples/) folder.
-
----
 
 ## 🧪 Testing & Development
 
@@ -63,19 +55,13 @@ Format code:
 make format
 ```
 
----
-
 ## 🙌 Contributing
 
 Contributions are welcome! Please open an issue or [pull request](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.name }}/pulls).
 
----
-
 ## 📄 License
 
 Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
-
----
 
 ## 🔗 Useful Links
 
